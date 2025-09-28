@@ -1,0 +1,5 @@
+[
+  {"name":"swamp-ghoul","type":"undead","env":"swamp","cr":2,"hp":34,"ac":13,"tags":["random","brute"]},
+  {"name":"ruin-hyena","type":"beast","env":"ruins","cr":1,"hp":22,"ac":12,"tags":["skirmisher"]},
+  {"name":"cave-mimic","type":"aberration","env":"underground","cr":3,"hp":45,"ac":14,"tags":["ambush"]}
+]

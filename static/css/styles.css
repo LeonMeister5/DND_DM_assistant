@@ -1,0 +1,5 @@
+body{font-family:system-ui,Segoe UI,Arial;max-width:720px;margin:24px auto;padding:0 12px;}
+h1{font-size:22px;margin-bottom:12px;}
+pre{background:#111;color:#0f0;padding:12px;white-space:pre-wrap;word-break:break-word;}
+button{margin:8px 0;padding:6px 12px;}
+input{width:70%;}
