@@ -1,22 +1,16 @@
 from flask import Blueprint, request, jsonify
-from services.rand_service import random_monster
-from services.llm_client import LlmClient
+from services.gpt4omini_monster import Gpt4oMiniMonster
+# from services.volc_monster import VolcMonster
 
 bp = Blueprint("api", __name__, url_prefix="/api")
-_llm = LlmClient()
+_llm = Gpt4oMiniMonster()
 
-@bp.get("/random_monster")
-def get_random_monster():
-    cons = request.args.get("constraints", "")
-    constraints = [c.strip() for c in cons.split(",") if c.strip()]
-    m = random_monster(constraints)
-    return jsonify(m)
-
+# frontend need change
 @bp.post("/llm_enrich")
 def post_llm_enrich():
     data = request.get_json(force=True)
-    m = data.get("monster")
-    if not m:
+    theme, width, height = data.get("monster")
+    if not theme or not width or not height:
         return jsonify({"error":"monster required"}), 400
-    text = _llm.enrich(m)
+    text = _llm.generate_room(theme, width, height)
     return jsonify({"description": text})

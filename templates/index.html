@@ -1,20 +1,42 @@
 <!doctype html>
-<html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8"/>
-  <title>DND DM Assistant</title>
-  <link rel="stylesheet" href="/static/css/styles.css">
+  <meta charset="utf-8" />
+  <title>DND 地下城房间生成器</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
 </head>
 <body>
-  <h1>DND DM Assistant</h1>
-  <div>
-    <label>筛选(逗号分隔)：</label>
-    <input id="constraints" placeholder="swamp, skirmisher">
-    <button id="btn-rand">随机怪</button>
-  </div>
-  <pre id="monster"></pre>
-  <button id="btn-enrich" disabled>用豆包润色</button>
-  <pre id="desc"></pre>
+  <h1>DND 地下城房间生成器</h1>
+
+  <section id="controls">
+    <!-- 控制区：输入参数 -->
+    <label>主题:
+      <input id="theme" type="text" value="遗迹" />
+    </label>
+    <label>宽(格):
+      <input id="width" type="number" value="10" min="3" />
+    </label>
+    <label>高(格):
+      <input id="height" type="number" value="8" min="3" />
+    </label>
+    <button id="btn-generate">生成房间</button>
+  </section>
+
+  <section id="canvas-section">
+    <!-- 可视化房间 -->
+    <canvas id="map" width="500" height="400"></canvas>
+  </section>
+
+  <section id="output">
+    <!-- 显示模型返回的JSON -->
+    <h2>房间数据(JSON)</h2>
+    <pre id="json"></pre>
+  </section>
+
+  <footer>
+    <p>提示: 点击“生成房间”按钮后, 会调用后端API生成房间结构, 然后在上方画布显示物件位置。</p>
+  </footer>
+
   <script src="/static/js/app.js"></script>
 </body>
 </html>
